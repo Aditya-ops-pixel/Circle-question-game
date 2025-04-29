@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circle Question Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .question {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter a number (1–50)</h2>
+    <input type="number" id="numberInput" min="1" max="50" />
+    <button onclick="showQuestion()">Show Question</button>
+    <div class="question" id="questionDisplay"></div>
+    <button onclick="clearScreen()">Next Turn</button>
+  </div>  <script>
+    const questions = [
+      "Who do you think is the ugliest person here?",
+      "Who is most likely to die alone?",
+      "Who has the worst fashion sense in this room?",
+      "Who is the most fake friend in the group?",
+      "Who do you think has the lowest IQ here?",
+      "Who is the most talentless person here?",
+      "Who is most likely to stab a friend in the back?",
+      "Who do you secretly wish would leave the group?",
+      "Who tries too hard to be liked?",
+      "Who is most likely to ruin their own life?",
+      "Who do you think is just average in every way?",
+      "Who has the most toxic personality?",
+      "Who is most likely to end up in a scandal?",
+      "Who do you think is the biggest liar?",
+      "Whose presence you find annoying but never said anything?",
+      "Who would be the worst person to live with?",
+      "Who do you think fakes confidence the most?",
+      "Whose family would you never want to be part of?",
+      "Who is the most insecure person here?",
+      "Who do you think is secretly in love with someone in the group?",
+      "Who is the most attractive person here?",
+      "Who has the strongest character in the group?",
+      "Who do you admire but haven’t told them?",
+      "Who would you trust with your deepest secret?",
+      "Who do you think will be the most successful?",
+      "Who would die for their friends without hesitation?",
+      "Who has the kindest heart?",
+      "Who do you think will be an amazing parent one day?",
+      "Who has overcome the most silently?",
+      "Who always uplifts the group’s energy?",
+      "Who would protect you at any cost?",
+      "Who do you feel safest with?",
+      "Who would make the most loyal partner?",
+      "Who do you think deserves more love and attention?",
+      "Who has a presence that brings peace?",
+      "Who’s the most emotionally intelligent person here?",
+      "Who makes you feel seen and understood?",
+      "Who do you think is everyone’s secret favorite?",
+      "Who is the most selfless person in this group?",
+      "Who do you think could become famous?",
+      "Who’s the most misunderstood person here?",
+      "Who hides their sadness the best?",
+      "Who’s secretly the smartest in the room?",
+      "Who would survive the longest in an apocalypse?",
+      "Who has the best moral compass?",
+      "Who do you believe in, even if they don’t believe in themselves?",
+      "Who’s the one you’d want by your side in a fight?",
+      "Who could lead a revolution and actually win?",
+      "Who would be your ride or die till the end?",
+      "Who has the most beautiful soul?"
+    ];
+
+    function showQuestion() {
+      const input = document.getElementById("numberInput").value;
+      const index = parseInt(input);
+      const display = document.getElementById("questionDisplay");
+      if (index >= 1 && index <= 50) {
+        display.textContent = `Question #${index}: ` + questions[index - 1];
+      } else {
+        display.textContent = "Please enter a number between 1 and 50.";
+      }
+    }
+
+    function clearScreen() {
+      document.getElementById("numberInput").value = "";
+      document.getElementById("questionDisplay").textContent = "";
+    }
+  </script></body>
+</html>
